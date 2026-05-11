@@ -1,0 +1,1303 @@
+<!-- File: SAUT_industrial_redesign.html -->
+
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>НПО САУТ — Системы управления и безопасности на транспорте</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root{
+      --blue:#0066CC;
+      --blue-dark:#003E7E;
+      --gray:#1E2A3A;
+      --light:#F4F7FA;
+      --border:#DCE3EA;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:8px;
+      --transition:.25s ease;
+      --container:1240px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter', Arial, sans-serif;
+      color:var(--gray);
+      background:#fff;
+      line-height:1.6;
+      font-size:16px;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(92%, var(--container));
+      margin:0 auto;
+    }
+
+    section{
+      padding:90px 0;
+    }
+
+    .section-title{
+      font-size:40px;
+      line-height:1.2;
+      margin-bottom:18px;
+      font-weight:800;
+      color:var(--gray);
+    }
+
+    .section-subtitle{
+      color:#556273;
+      max-width:760px;
+      margin-bottom:40px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border:none;
+      cursor:pointer;
+      padding:15px 24px;
+      border-radius:8px;
+      font-weight:600;
+      transition:var(--transition);
+      font-size:16px;
+    }
+
+    .btn-primary{
+      background:var(--blue);
+      color:#fff;
+    }
+
+    .btn-primary:hover{
+      background:var(--blue-dark);
+      transform:translateY(-2px);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      color:var(--gray);
+      border:1px solid var(--border);
+    }
+
+    .btn-secondary:hover{
+      border-color:var(--blue);
+      color:var(--blue);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid #eef2f6;
+    }
+
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      min-height:84px;
+    }
+
+    .logo{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .logo strong{
+      font-size:26px;
+      color:var(--blue-dark);
+      font-weight:800;
+    }
+
+    .logo span{
+      font-size:12px;
+      color:#5f6d7b;
+      max-width:280px;
+      line-height:1.4;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:28px;
+    }
+
+    nav a{
+      font-weight:500;
+      position:relative;
+      transition:var(--transition);
+    }
+
+    nav a:hover{
+      color:var(--blue);
+    }
+
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+
+    .burger{
+      display:none;
+      background:none;
+      border:none;
+      font-size:24px;
+      cursor:pointer;
+      color:var(--gray);
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+      radial-gradient(circle at top left, rgba(0,102,204,.35), transparent 30%),
+      linear-gradient(135deg, #06284c 0%, #003e7e 55%, #005bb8 100%);
+      color:#fff;
+      padding:120px 0;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .hero h1{
+      font-size:58px;
+      line-height:1.1;
+      margin-bottom:24px;
+      font-weight:800;
+    }
+
+    .hero p{
+      font-size:20px;
+      max-width:700px;
+      color:rgba(255,255,255,.88);
+      margin-bottom:36px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .hero-panel{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      padding:32px;
+      border-radius:16px;
+      backdrop-filter:blur(6px);
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .stat{
+      background:rgba(255,255,255,.08);
+      padding:20px;
+      border-radius:12px;
+    }
+
+    .stat strong{
+      font-size:30px;
+      display:block;
+      margin-bottom:6px;
+    }
+
+    .filters{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:36px;
+    }
+
+    .filter-btn{
+      border:1px solid var(--border);
+      background:#fff;
+      padding:12px 18px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:600;
+      transition:var(--transition);
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover{
+      background:var(--blue);
+      color:#fff;
+      border-color:var(--blue);
+    }
+
+    .products{
+      display:grid;
+      gap:22px;
+    }
+
+    .product-card{
+      display:grid;
+      grid-template-columns:120px 1fr auto;
+      gap:24px;
+      align-items:center;
+      padding:24px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fff;
+      box-shadow:var(--shadow);
+      transition:var(--transition);
+    }
+
+    .product-card:hover{
+      transform:translateY(-4px);
+    }
+
+    .product-icon{
+      width:120px;
+      height:120px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:42px;
+      color:#fff;
+      background:linear-gradient(135deg, var(--blue), var(--blue-dark));
+    }
+
+    .product-info h3{
+      font-size:24px;
+      margin-bottom:10px;
+    }
+
+    .product-tag{
+      display:inline-block;
+      margin-bottom:12px;
+      background:#E9F3FF;
+      color:var(--blue);
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .details-card{
+      background:#fff;
+      border-radius:16px;
+      padding:40px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+    }
+
+    .details-top{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+      margin-bottom:32px;
+    }
+
+    .tabs{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:28px;
+      border-bottom:1px solid var(--border);
+      padding-bottom:18px;
+    }
+
+    .tab-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 18px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+      transition:var(--transition);
+    }
+
+    .tab-btn.active{
+      background:var(--blue);
+      color:#fff;
+      border-color:var(--blue);
+    }
+
+    .tab-content{
+      display:none;
+      animation:fade .3s ease;
+    }
+
+    .tab-content.active{
+      display:block;
+    }
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(6px);
+      }
+      to{
+        opacity:1;
+        transform:none;
+      }
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    table td{
+      border-bottom:1px solid var(--border);
+      padding:14px;
+    }
+
+    table td:first-child{
+      font-weight:600;
+      width:40%;
+    }
+
+    .doc-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .doc-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:16px 18px;
+    }
+
+    .preview-box{
+      height:220px;
+      border-radius:12px;
+      background:
+      linear-gradient(135deg, rgba(0,102,204,.12), rgba(0,62,126,.08));
+      border:1px dashed #aac9eb;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      color:#42617f;
+      text-align:center;
+      padding:20px;
+    }
+
+    .compatibility{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:18px;
+    }
+
+    .compatibility div{
+      border:1px solid var(--border);
+      padding:18px;
+      border-radius:10px;
+      background:#fafcff;
+    }
+
+    .cases{
+      background:var(--light);
+    }
+
+    .case-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .case-card{
+      background:#fff;
+      padding:32px;
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+    }
+
+    .case-card h3{
+      margin-bottom:16px;
+      font-size:24px;
+    }
+
+    .case-number{
+      font-size:42px;
+      color:var(--blue);
+      font-weight:800;
+      margin:24px 0 6px;
+    }
+
+    .docs{
+      display:grid;
+      gap:16px;
+    }
+
+    .doc-download{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:18px 22px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      transition:var(--transition);
+    }
+
+    .doc-download:hover{
+      border-color:var(--blue);
+      transform:translateX(4px);
+    }
+
+    .specialist-box{
+      background:linear-gradient(135deg, #f7fbff, #eef5fc);
+      border:1px solid #d6e5f3;
+      padding:40px;
+      border-radius:16px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:24px;
+      align-items:center;
+    }
+
+    .specialist-form{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    input{
+      min-width:280px;
+      padding:14px 16px;
+      border-radius:8px;
+      border:1px solid var(--border);
+      font-size:16px;
+    }
+
+    .demo-result{
+      margin-top:16px;
+      color:var(--blue-dark);
+      font-weight:600;
+    }
+
+    footer{
+      background:#081b30;
+      color:#fff;
+      padding:70px 0 30px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:40px;
+      margin-bottom:50px;
+    }
+
+    .footer-links{
+      display:grid;
+      gap:12px;
+    }
+
+    .footer-links a{
+      color:rgba(255,255,255,.82);
+    }
+
+    .partners{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .partner{
+      padding:12px 18px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:8px;
+      color:rgba(255,255,255,.85);
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.1);
+      padding-top:24px;
+      color:rgba(255,255,255,.65);
+    }
+
+    .mobile-menu{
+      display:none;
+    }
+
+    @media(max-width:992px){
+
+      .hero-grid,
+      .case-grid,
+      .footer-grid,
+      .specialist-box{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:46px;
+      }
+
+      .product-card{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        display:none;
+      }
+
+      .burger{
+        display:block;
+      }
+
+      .mobile-menu{
+        display:none;
+        flex-direction:column;
+        gap:16px;
+        padding:24px 0;
+      }
+
+      .mobile-menu.active{
+        display:flex;
+      }
+
+      .hero{
+        padding:90px 0;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .section-title{
+        font-size:32px;
+      }
+
+      .header-actions .btn{
+        display:none;
+      }
+
+      .details-card{
+        padding:24px;
+      }
+    }
+  </style>
+
+
+
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="#" class="logo">
+        <strong>НПО САУТ</strong>
+        <span>Системы управления и безопасности на транспорте</span>
+      </a>
+
+      <nav>
+        <a href="#products">Продукция</a>
+        <a href="#solutions">Решения</a>
+        <a href="#documentation">Документация</a>
+        <a href="#about">О компании</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#specialists">Специалистам</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-primary">
+          <i class="fa-solid fa-file-signature"></i>
+          Запросить КП
+        </button>
+
+        <button class="burger" id="burgerBtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#products">Продукция</a>
+      <a href="#solutions">Решения</a>
+      <a href="#documentation">Документация</a>
+      <a href="#about">О компании</a>
+      <a href="#contacts">Контакты</a>
+      <a href="#specialists">Специалистам</a>
+      <button class="btn btn-primary">Запросить КП</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <div>
+        <h1>Безопасность и управление на железнодорожном транспорте</h1>
+
+        <p>
+          Комплексные системы безопасности, диагностики и связи
+          для локомотивов и электропоездов.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#products" class="btn btn-primary">
+            <i class="fa-solid fa-microchip"></i>
+            Перейти к продукции
+          </a>
+
+          <a href="#solutions" class="btn btn-secondary">
+            <i class="fa-solid fa-diagram-project"></i>
+            Смотреть решения
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="hero-stats">
+
+          <div class="stat">
+            <strong>25+</strong>
+            <span>лет разработки систем безопасности</span>
+          </div>
+
+          <div class="stat">
+            <strong>1500+</strong>
+            <span>локомотивов оснащено комплексами</span>
+          </div>
+
+          <div class="stat">
+            <strong>99.7%</strong>
+            <span>уровень отказоустойчивости решений</span>
+          </div>
+
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>инженерная техническая поддержка</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="container">
+
+    <h2 class="section-title">Продукция</h2>
+
+    <p class="section-subtitle">
+      Каталог систем безопасности, управления, диагностики и связи
+      для подвижного состава железнодорожного транспорта.
+    </p>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Все системы</button>
+      <button class="filter-btn" data-filter="safety">Безопасности</button>
+      <button class="filter-btn" data-filter="control">Управления</button>
+      <button class="filter-btn" data-filter="diagnostic">Диагностики</button>
+      <button class="filter-btn" data-filter="communication">Связи</button>
+    </div>
+
+    <div class="products">
+
+      <div class="product-card" data-category="safety">
+        <div class="product-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <div class="product-info">
+          <span class="product-tag">Безопасности</span>
+          <h3>БЛОК</h3>
+          <p>
+            Безопасный локомотивный объединённый комплекс для контроля
+            параметров движения и безопасности локомотива.
+          </p>
+        </div>
+
+        <a href="#product-details" class="btn btn-primary">
+          Подробнее
+        </a>
+      </div>
+
+      <div class="product-card" data-category="control">
+        <div class="product-icon">
+          <i class="fa-solid fa-train"></i>
+        </div>
+
+        <div class="product-info">
+          <span class="product-tag">Управления</span>
+          <h3>КЛУБ-У</h3>
+          <p>
+            Комплексное локомотивное устройство безопасности
+            с расширенными функциями управления движением.
+          </p>
+        </div>
+
+        <a href="#product-details" class="btn btn-primary">
+          Подробнее
+        </a>
+      </div>
+
+      <div class="product-card" data-category="diagnostic">
+        <div class="product-icon">
+          <i class="fa-solid fa-wave-square"></i>
+        </div>
+
+        <div class="product-info">
+          <span class="product-tag">Диагностики</span>
+          <h3>ТСКБМ</h3>
+          <p>
+            Телеметрическая система контроля бодрствования машиниста
+            и анализа состояния локомотивной бригады.
+          </p>
+        </div>
+
+        <a href="#product-details" class="btn btn-primary">
+          Подробнее
+        </a>
+      </div>
+
+      <div class="product-card" data-category="safety">
+        <div class="product-icon">
+          <i class="fa-solid fa-lock"></i>
+        </div>
+
+        <div class="product-info">
+          <span class="product-tag">Безопасности</span>
+          <h3>САУТ-ЦМ</h3>
+          <p>
+            Система автоматического управления торможением
+            для повышения безопасности движения поездов.
+          </p>
+        </div>
+
+        <a href="#product-details" class="btn btn-primary">
+          Подробнее
+        </a>
+      </div>
+
+      <div class="product-card" data-category="diagnostic">
+        <div class="product-icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+        <div class="product-info">
+          <span class="product-tag">Диагностики</span>
+          <h3>РПДА</h3>
+          <p>
+            Регистратор параметров движения и автоведения
+            с расширенной системой хранения событий.
+          </p>
+        </div>
+
+        <a href="#product-details" class="btn btn-primary">
+          Подробнее
+        </a>
+      </div>
+
+      <div class="product-card" data-category="communication">
+        <div class="product-icon">
+          <i class="fa-solid fa-tower-broadcast"></i>
+        </div>
+
+        <div class="product-info">
+          <span class="product-tag">Связи</span>
+          <h3>БЭЛ</h3>
+          <p>
+            Бортовой электронный локомотивный модуль связи
+            для обмена данными и телеметрии.
+          </p>
+        </div>
+
+        <a href="#product-details" class="btn btn-primary">
+          Подробнее
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="product-details">
+  <div class="container">
+
+    <h2 class="section-title">
+      БЛОК — Безопасный локомотивный объединённый комплекс
+    </h2>
+
+    <p class="section-subtitle">
+      Современный комплекс обеспечения безопасности движения,
+      мониторинга параметров локомотива и интеграции
+      с инфраструктурой железнодорожного транспорта.
+    </p>
+
+    <div class="details-card">
+
+      <div class="details-top">
+        <div>
+          <h3 style="font-size:32px; margin-bottom:12px;">Серия БЛОК-М</h3>
+          <p style="max-width:700px;">
+            Решение предназначено для эксплуатации
+            на магистральных локомотивах и моторвагонном подвижном составе.
+          </p>
+        </div>
+
+        <button class="btn btn-primary">
+          <i class="fa-solid fa-headset"></i>
+          Получить консультацию инженера
+        </button>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="specs">Характеристики</button>
+        <button class="tab-btn" data-tab="docs">Документация</button>
+        <button class="tab-btn" data-tab="drawings">Чертежи и схемы</button>
+        <button class="tab-btn" data-tab="compatibility">Совместимость</button>
+      </div>
+
+      <div class="tab-content active" id="specs">
+        <table>
+          <tbody><tr>
+            <td>Напряжение питания</td>
+            <td>50 В / 110 В постоянного тока</td>
+          </tr>
+
+          <tr>
+            <td>Температурный диапазон</td>
+            <td>от −40°C до +55°C</td>
+          </tr>
+
+          <tr>
+            <td>Интерфейсы связи</td>
+            <td>CAN, Ethernet, RS-485</td>
+          </tr>
+
+          <tr>
+            <td>Степень защиты</td>
+            <td>IP54</td>
+          </tr>
+
+          <tr>
+            <td>Среднее время наработки</td>
+            <td>не менее 50 000 часов</td>
+          </tr>
+        </tbody></table>
+      </div>
+
+      <div class="tab-content" id="docs">
+
+        <div class="doc-list">
+
+          <div class="doc-item">
+            <div>
+              <strong>Скачать паспорт изделия</strong><br>
+              PDF, 1.2 МБ
+            </div>
+
+            <a href="javascript:void(0)" class="btn btn-secondary demo-download">
+              <i class="fa-solid fa-file-pdf"></i>
+              Скачать
+            </a>
+          </div>
+
+          <div class="doc-item">
+            <div>
+              <strong>Руководство по эксплуатации</strong><br>
+              PDF, 3.8 МБ
+            </div>
+
+            <a href="javascript:void(0)" class="btn btn-secondary demo-download">
+              <i class="fa-solid fa-file-pdf"></i>
+              Скачать
+            </a>
+          </div>
+
+          <div class="doc-item">
+            <div>
+              <strong>Сертификаты соответствия</strong><br>
+              PDF, 980 КБ
+            </div>
+
+            <a href="javascript:void(0)" class="btn btn-secondary demo-download">
+              <i class="fa-solid fa-file-pdf"></i>
+              Скачать
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="tab-content" id="drawings">
+
+        <div class="preview-box">
+          <div>
+            <i class="fa-solid fa-compass-drafting" style="font-size:44px; margin-bottom:18px;"></i><br>
+            Габаритный чертеж (предпросмотр)<br>
+            Схема подключения и интерфейсов комплекса БЛОК
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-content" id="compatibility">
+
+        <div class="compatibility">
+          <div>Совместимость с КЛУБ-У</div>
+          <div>Интеграция с САУТ-ЦМ</div>
+          <div>Поддержка РПДА</div>
+          <div>Интерфейс для систем автоведения</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="cases" id="solutions">
+  <div class="container">
+
+    <h2 class="section-title">Отраслевые решения</h2>
+
+    <p class="section-subtitle">
+      Комплексные внедрения систем безопасности и управления
+      для различных типов железнодорожного подвижного состава.
+    </p>
+
+    <div class="case-grid">
+
+      <div class="case-card">
+        <h3>Для магистральных локомотивов</h3>
+
+        <p>
+          Интеграция систем безопасности, диагностики
+          и телеметрии для грузовых и пассажирских локомотивов.
+        </p>
+
+        <div class="case-number">30%</div>
+        <span>снижение аварийности</span>
+      </div>
+
+      <div class="case-card">
+        <h3>Для электропоездов</h3>
+
+        <p>
+          Комплексы автоматизированного контроля
+          движения и мониторинга технического состояния.
+        </p>
+
+        <div class="case-number">18%</div>
+        <span>сокращение времени диагностики</span>
+      </div>
+
+      <div class="case-card">
+        <h3>Для метрополитена</h3>
+
+        <p>
+          Решения для городской транспортной инфраструктуры
+          с повышенными требованиями к отказоустойчивости.
+        </p>
+
+        <div class="case-number">99.9%</div>
+        <span>доступность критических систем</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="documentation">
+  <div class="container">
+
+    <h2 class="section-title">Документация для скачивания</h2>
+
+    <p class="section-subtitle">
+      Техническая документация доступна без регистрации
+      и дополнительных подтверждений.
+    </p>
+
+    <div class="docs">
+
+      <a href="javascript:void(0)" class="doc-download demo-download">
+        <div>
+          <strong>
+            <i class="fa-solid fa-file-pdf"></i>
+            Руководство по эксплуатации САУТ-ЦМ
+          </strong>
+        </div>
+
+        <span>PDF</span>
+      </a>
+
+      <a href="javascript:void(0)" class="doc-download demo-download">
+        <div>
+          <strong>
+            <i class="fa-solid fa-file-pdf"></i>
+            Паспорт БЛОК
+          </strong>
+        </div>
+
+        <span>PDF</span>
+      </a>
+
+      <a href="javascript:void(0)" class="doc-download demo-download">
+        <div>
+          <strong>
+            <i class="fa-solid fa-file-pdf"></i>
+            Сертификаты соответствия
+          </strong>
+        </div>
+
+        <span>PDF</span>
+      </a>
+
+      <a href="javascript:void(0)" class="doc-download demo-download">
+        <div>
+          <strong>
+            <i class="fa-solid fa-file-pdf"></i>
+            Схемы подключения
+          </strong>
+        </div>
+
+        <span>PDF</span>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="specialists">
+  <div class="container">
+
+    <div class="specialist-box">
+
+      <div>
+        <h2 class="section-title" style="margin-bottom:14px;">
+          Доступ к технической документации по серийному номеру
+        </h2>
+
+        <p>
+          Раздел для специалистов депо и сервисных подразделений.
+          Введите серийный номер оборудования для получения обновлений,
+          протоколов и сервисной информации.
+        </p>
+
+        <div class="demo-result" id="demoResult"></div>
+      </div>
+
+      <div class="specialist-form">
+        <input type="text" id="serialInput" placeholder="Введите серийный номер">
+        <button class="btn btn-primary" id="accessBtn">
+          Получить
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <div class="logo" style="margin-bottom:24px;">
+          <strong style="color:#fff;">НПО САУТ</strong>
+          <span style="color:rgba(255,255,255,.72);">
+            Системы управления и безопасности на транспорте
+          </span>
+        </div>
+
+        <p style="max-width:520px; color:rgba(255,255,255,.76);">
+          Разработка и внедрение систем безопасности,
+          управления, диагностики и связи
+          для железнодорожного транспорта.
+        </p>
+
+        <div class="partners">
+          <div class="partner">РЖД</div>
+          <div class="partner">Минтранс</div>
+          <div class="partner">ISO 9001</div>
+          <div class="partner">ТР ТС</div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="margin-bottom:20px;">Навигация</h3>
+
+        <div class="footer-links">
+          <a href="#products">Продукция</a>
+          <a href="#solutions">Решения</a>
+          <a href="#documentation">Документация</a>
+          <a href="#specialists">Специалистам</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="margin-bottom:20px;">Контакты</h3>
+
+        <div class="footer-links">
+          <a href="tel:+74951234567">ТЕЛ./ФАКС: +7 (343) 358-41-81,
+
++7 (343) 357-30-39
+
+</a>
+Ж.Д: (97022) 4-41-81
+
+          <a href="mailto:info@saut.ru">info@saut.ru</a>
+          <a href="javascript:void(0)">
+            г. Екатеринбург, ул. Челюскинцев, 15, производственная площадка - ул.Фронтовых бригад, 18 к.43
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 НПО САУТ. Демонстрационный прототип промышленного B2B-сайта.
+    </div>
+
+  </div>
+</footer>
+
+<script>
+
+  // Burger menu
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  burgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+  });
+
+  // Product filters
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const productCards = document.querySelectorAll('.product-card');
+
+  filterButtons.forEach(button => {
+
+    button.addEventListener('click', () => {
+
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const filter = button.dataset.filter;
+
+      productCards.forEach(card => {
+
+        if(filter === 'all' || card.dataset.category === filter){
+          card.style.display = 'grid';
+        } else {
+          card.style.display = 'none';
+        }
+
+      });
+
+    });
+
+  });
+
+  // Tabs
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabButtons.forEach(button => {
+
+    button.addEventListener('click', () => {
+
+      const tab = button.dataset.tab;
+
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      button.classList.add('active');
+      document.getElementById(tab).classList.add('active');
+
+    });
+
+  });
+
+  // Demo downloads
+  const demoDownloads = document.querySelectorAll('.demo-download');
+
+  demoDownloads.forEach(item => {
+
+    item.addEventListener('click', () => {
+
+      alert(
+        'В демо-версии сайта файл готов к скачиванию. В реальной версии документация открывается мгновенно.'
+      );
+
+    });
+
+  });
+
+  // Specialist demo access
+  const accessBtn = document.getElementById('accessBtn');
+  const serialInput = document.getElementById('serialInput');
+  const demoResult = document.getElementById('demoResult');
+
+  accessBtn.addEventListener('click', () => {
+
+    if(serialInput.value.trim() !== ''){
+
+      demoResult.innerHTML =
+      'Демо-доступ: вот ссылки на обновления ПО и протоколы обслуживания оборудования.';
+
+    } else {
+
+      demoResult.innerHTML =
+      'Введите серийный номер оборудования.';
+
+    }
+
+  });
+
+</script>
